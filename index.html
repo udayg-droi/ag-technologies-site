@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AG Technologies — Your AMC dates, finally off the diary</title>
+<meta name="description" content="AG Technologies builds a renewal and AMC follow-up board for small Mumbai offices of 20 to 200 computers, then runs it on a retainer.">
+<meta name="theme-color" content="#F7F3EC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/*
+  AG Technologies, one page.
+  Colours, named so nothing is guessed:
+    Warm Cream  #F7F3EC  page background
+    Near Black  #101418  body text
+    Deep Ink    #14212B  headings
+    Signal Teal #0F6B6B  accent only: buttons, one headline word, thin rules, icons
+    Teal Dark   #0B5555  button hover
+    Slate Blue  #3A5A78  small labels, quiet lines
+    Card Cream  #FFFCF6  soft card and panel background
+    Quiet Line  #E4DCCE  thin rules and borders
+    Footer Ink  #17242D  footer background, sampled from the dark logo so the mark sits seamless
+    Footer Text #CBC3B4  quiet text on the dark footer
+*/
+:root{
+  --cream:#F7F3EC;
+  --ink:#101418;
+  --deep:#14212B;
+  --teal:#0F6B6B;
+  --teal-dark:#0B5555;
+  --slate:#3A5A78;
+  --card:#FFFCF6;
+  --line:#E4DCCE;
+  --footer:#17242D;
+  --footer-text:#CBC3B4;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:18px;
+  line-height:1.6;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img{max-width:100%;display:block}
+h1,h2,h3{
+  font-family:"Fraunces",Georgia,"Times New Roman",serif;
+  color:var(--deep);
+  font-weight:600;
+  line-height:1.08;
+  letter-spacing:-0.018em;
+  margin:0;
+}
+h2{font-size:clamp(28px,4.4vw,44px);margin-top:14px;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 22px}
+.measure{max-width:64ch}
+section{padding:clamp(56px,9vw,108px) 0}
+.label{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--slate)}
+[data-media].is-missing{display:none}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:50px;padding:14px 26px;border-radius:10px;
+  font-size:17px;font-weight:600;text-decoration:none;
+  border:1.5px solid transparent;cursor:pointer;
+  transition:background-color .15s ease,border-color .15s ease,color .15s ease;
+}
+.btn-primary{background:var(--teal);color:var(--cream)}
+.btn-primary:hover{background:var(--teal-dark)}
+.btn-outline{color:var(--slate);border-color:var(--slate);background:transparent}
+.btn-outline:hover{color:var(--teal);border-color:var(--teal)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+
+/* ---------- header ---------- */
+.site-header{position:absolute;top:0;left:0;right:0;z-index:6;padding:16px 0}
+.site-header .wrap{display:flex;align-items:center}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none}
+.logo-mark{position:relative;width:68px;height:40px;overflow:hidden;flex:none}
+.logo-mark img{position:absolute;left:50%;top:44.7%;width:163px;height:163px;max-width:none;transform:translate(-50%,-44.7%)}
+.brand-name{font-family:"Fraunces",Georgia,serif;font-size:20px;font-weight:600;color:var(--deep);letter-spacing:-0.01em}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--cream);overflow:hidden}
+.hero-copy{padding-top:104px;padding-bottom:40px}
+.hero-copy-inner{max-width:600px}
+.hero-media{margin:0;height:60vh;min-height:320px;overflow:hidden}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 26%}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--slate)}
+.hero h1{margin-top:16px;font-size:clamp(38px,7.4vw,68px);line-height:1.02}
+.accent{color:var(--teal)}
+.hero-sub{margin-top:18px;font-size:clamp(19px,2.2vw,23px);max-width:32ch}
+.hero-cta{margin-top:30px}
+@media(min-width:900px){
+  .hero{display:grid;align-items:center;min-height:90vh}
+  .hero-copy{padding-top:0;padding-bottom:0}
+  .hero-media{position:absolute;inset:0;height:100%;min-height:0;z-index:0}
+  .hero-media img{object-position:66% 34%}
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:1;
+    background:linear-gradient(90deg,var(--cream) 0%,rgba(247,243,236,.97) 28%,rgba(247,243,236,.72) 46%,rgba(247,243,236,0) 66%);
+  }
+  .hero-copy{position:relative;z-index:2}
+}
+
+/* ---------- problem ---------- */
+.problem .quote{margin:30px 0 0;border-left:3px solid var(--teal);padding-left:26px;max-width:66ch}
+.problem blockquote{margin:0;font-size:clamp(20px,2.4vw,25px);line-height:1.5}
+.problem .kicker{margin-top:28px;font-family:"Fraunces",Georgia,serif;font-size:clamp(22px,3vw,30px);color:var(--deep);max-width:26ch;line-height:1.2}
+
+/* ---------- full width service band ---------- */
+.band{padding:0}
+.band-media{margin:0;overflow:hidden;background:var(--deep)}
+.band-media img{width:100%;height:clamp(320px,46vw,620px);object-fit:cover;object-position:center 56%}
+@media(max-width:640px){.band-media img{height:auto}}
+
+/* ---------- services ---------- */
+.services .lede{margin-top:20px;font-size:19px;max-width:60ch}
+.cards{list-style:none;margin:34px 0 0;padding:0;display:grid;gap:20px;grid-template-columns:1fr}
+@media(min-width:760px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px 26px 34px}
+.card .icon{margin-bottom:20px}
+.card h3{font-family:"Inter",system-ui,sans-serif;font-size:21px;font-weight:600;line-height:1.32;letter-spacing:-0.01em}
+.icon{width:24px;height:24px;flex:none}
+.icon-teal{color:var(--teal)}
+.price{margin-top:30px;font-size:19px;max-width:60ch}
+.price strong{font-family:"Fraunces",Georgia,serif;font-weight:600;color:var(--teal);font-size:23px}
+
+/* ---------- how it works ---------- */
+.steps{list-style:none;margin:34px 0 0;padding:0;display:grid;gap:28px;grid-template-columns:1fr}
+@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr);gap:32px}}
+.step{padding-top:24px;border-top:1px solid var(--line)}
+.step-num{display:block;font-family:"Fraunces",Georgia,serif;font-size:34px;font-weight:600;color:var(--teal);line-height:1;margin-bottom:16px}
+.step p{font-size:19px}
+
+/* ---------- who you are working with ---------- */
+.about-grid{display:grid;gap:36px;grid-template-columns:1fr}
+@media(min-width:880px){.about-grid{grid-template-columns:1.9fr 1fr;gap:56px;align-items:start}}
+.about-name{display:flex;align-items:center;gap:18px;margin-top:18px}
+.avatar{width:64px;height:64px;border-radius:50%;overflow:hidden;flex:none;margin:0;border:2px solid var(--card)}
+.avatar img{width:100%;height:100%;object-fit:cover;object-position:center 10%}
+.about-name h2{margin:0;font-size:clamp(28px,4vw,40px)}
+.about-copy p{margin-top:20px}
+.slot{
+  margin-top:22px;padding:16px 18px;border:1.5px dashed var(--teal);border-radius:12px;
+  background:var(--card);color:var(--slate);font-size:16px;max-width:56ch;
+}
+.signoff{margin-top:22px;font-family:"Fraunces",Georgia,serif;font-size:19px;color:var(--deep)}
+.about-media{margin:0}
+.about-media img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:18px}
+
+/* ---------- contact ---------- */
+.contact-panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:clamp(28px,5vw,56px);max-width:860px}
+.contact-sub{margin-top:20px;font-size:19px;max-width:52ch}
+.contact-actions{margin-top:30px;display:flex;flex-direction:column;gap:14px;align-items:stretch}
+@media(min-width:560px){.contact-actions{flex-direction:row;flex-wrap:wrap;align-items:center}}
+
+/* ---------- footer ---------- */
+.site-footer{background:var(--footer);color:var(--cream);padding:clamp(44px,7vw,72px) 0}
+.footer-grid{display:grid;gap:30px;grid-template-columns:1fr}
+@media(min-width:760px){.footer-grid{grid-template-columns:1.3fr 1fr 1fr;gap:40px}}
+.footer-brand{display:inline-flex;align-items:center;gap:12px}
+.footer-mark{position:relative;width:54px;height:32px;overflow:hidden;flex:none}
+.footer-mark img{position:absolute;left:50%;top:44.7%;width:130px;height:130px;max-width:none;transform:translate(-50%,-44.7%)}
+.footer-name{font-family:"Fraunces",Georgia,serif;font-size:20px;font-weight:600;color:var(--cream)}
+.site-footer p{color:var(--footer-text);font-size:15.5px;line-height:1.7}
+.site-footer .footer-links{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:4px}
+.site-footer a{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(247,243,236,.35)}
+.site-footer a:hover{border-bottom-color:var(--cream)}
+.footer-note{margin-top:30px;font-size:14px;color:var(--footer-text)}
+@media(max-width:759px){.footer-links{margin-top:0}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="AG Technologies, home">
+      <span class="logo-mark" data-media>
+        <img src="images/logo.jpeg" width="2048" height="2048" alt="AG Technologies logo: the letters AG in deep ink and signal teal" onerror="this.closest('[data-media]').classList.add('is-missing')">
+      </span>
+      <span class="brand-name">AG Technologies</span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 1. The top of the page -->
+  <section class="hero">
+    <div class="wrap hero-copy">
+      <div class="hero-copy-inner">
+        <p class="eyebrow">Mumbai IT support &middot; renewal &amp; AMC follow-up</p>
+        <h1>Your AMC dates, <span class="accent">finally</span> off the diary.</h1>
+        <p class="hero-sub">No more dead printers on a Monday.</p>
+        <p class="hero-cta">
+          <a class="btn btn-primary" href="https://cal.com/udaygondkar/intromeeting">Book a 20 minute call</a>
+        </p>
+      </div>
+    </div>
+    <figure class="hero-media" data-media>
+      <img src="images/speaking.jpeg" width="2752" height="1536" alt="Uday Gondkar of AG Technologies presenting the renewal and AMC follow-up board on a screen to an office team in a Mumbai meeting room" onerror="this.closest('[data-media]').classList.add('is-missing')">
+    </figure>
+  </section>
+
+  <!-- 2. The problem, in the client's own words -->
+  <section class="problem">
+    <div class="wrap">
+      <p class="label">The problem</p>
+      <h2 class="measure">AMC dates sit in a diary, or in one person's head.</h2>
+      <figure class="quote">
+        <blockquote>
+          <p>We run 20 to 200 machines with no IT person on the payroll. AMC dates, antivirus and mail licences, warranty ends and backup checks sit in a diary — or in one person's head. When a date slips, a printer or a login sits dead for two days, and the office loses billable work.</p>
+        </blockquote>
+      </figure>
+      <p class="kicker">You get the call after the loss, never before it.</p>
+    </div>
+  </section>
+
+  <!-- 3. Full width service band: the picture carries its own headline and logo -->
+  <section class="band" aria-label="The renewal and AMC follow-up board">
+    <figure class="band-media" data-media>
+      <img src="images/shot-1.jpeg" width="2048" height="2048" alt="A sunny Mumbai office window over a desk with a laptop showing the AG Technologies renewal and AMC follow-up board, a printer and a stack of AMC files" onerror="this.closest('[data-media]').classList.add('is-missing')">
+    </figure>
+  </section>
+
+  <!-- 4. The services -->
+  <section class="services">
+    <div class="wrap">
+      <p class="label">What I do about it</p>
+      <h2>Three projects. One price that covers all three.</h2>
+      <p class="lede measure">Three pieces of work, built for how a small Mumbai office actually runs.</p>
+      <ul class="cards">
+        <li class="card">
+          <svg class="icon icon-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M4 6.5h9"/><path d="M4 12h7"/><path d="M4 17.5h5"/>
+            <path d="m14.5 15.4 2.2 2.2 4-4.4"/>
+          </svg>
+          <h3>Support form that checks the AMC before it logs the job</h3>
+        </li>
+        <li class="card">
+          <svg class="icon icon-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <rect x="3.5" y="4.5" width="17" height="15" rx="2"/>
+            <path d="M9.2 4.5v15"/><path d="M14.8 4.5v15"/>
+            <path d="M6 8.2h1.4"/><path d="M11.6 8.2h1.4"/><path d="M17.2 8.2H18"/>
+          </svg>
+          <h3>Renewal and AMC follow-up board</h3>
+        </li>
+        <li class="card">
+          <svg class="icon icon-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M13.5 3.5H7.5A1.5 1.5 0 0 0 6 5v14a1.5 1.5 0 0 0 1.5 1.5h9A1.5 1.5 0 0 0 18 19V8l-4.5-4.5Z"/>
+            <path d="M13.5 3.5V8H18"/><path d="M9 12.5h6"/><path d="M9 16h4"/>
+          </svg>
+          <h3>Monday advisory digest for your client list</h3>
+        </li>
+      </ul>
+      <p class="price"><strong>Rs 35,000 a project.</strong> This one price covers everything the three projects do.</p>
+    </div>
+  </section>
+
+  <!-- 5. How it works -->
+  <section class="how">
+    <div class="wrap">
+      <p class="label">How it works</p>
+      <h2>Three steps.</h2>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-num">1</span>
+          <p>I build you a renewal and AMC follow-up board, filled with your own machines, licences and dates, for a fixed Rs 35,000.</p>
+        </li>
+        <li class="step">
+          <span class="step-num">2</span>
+          <p>You keep me on a Rs 15,000 a month retainer to run that board and a support form.</p>
+        </li>
+        <li class="step">
+          <span class="step-num">3</span>
+          <p>It replaces the diary, and it grows the AMC work you already do.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 6. Who they are, in their own voice -->
+  <section class="about">
+    <div class="wrap about-grid">
+      <div class="about-copy">
+        <p class="label">Who you are working with</p>
+        <div class="about-name">
+          <figure class="avatar" data-media>
+            <img src="images/profile.jpg" width="1241" height="1654" alt="Uday Gondkar, founder of AG Technologies, in a suit" onerror="this.closest('[data-media]').classList.add('is-missing')">
+          </figure>
+          <h2>Uday Gondkar</h2>
+        </div>
+        <p>AG Technologies looks after offices of 20 to 200 computers that have no IT person on the payroll. I build the renewal and AMC follow-up board, fill it with your machines, licences and dates, and run it for you.</p>
+        <p class="slot">[WHY I STARTED — add one or two lines here about the day you decided to fix this]</p>
+        <p class="signoff">— Uday Gondkar, AG Technologies</p>
+      </div>
+      <figure class="about-media" data-media>
+        <img src="images/working.jpeg" width="1792" height="2400" alt="Uday Gondkar at his desk in a Mumbai office, the AG Technologies AMC follow-up board open on his laptop" onerror="this.closest('[data-media]').classList.add('is-missing')">
+      </figure>
+    </div>
+  </section>
+
+  <!-- 7. Contact, links only, no backend -->
+  <section class="contact">
+    <div class="wrap">
+      <div class="contact-panel">
+        <p class="label">Start here</p>
+        <h2>Book a call, or send a message.</h2>
+        <p class="contact-sub">The first step is a 20 minute call about your AMC and renewal dates. WhatsApp and email are right here too.</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="https://cal.com/udaygondkar/intromeeting">Book a 20 minute call</a>
+          <a class="btn btn-outline" href="https://wa.me/919820084070?text=Hi%20Uday%2C%20I%20saw%20the%20AG%20Technologies%20page%20and%20would%20like%20to%20talk%20about%20our%20AMC%20and%20renewal%20dates.">Message me on WhatsApp</a>
+          <a class="btn btn-outline" href="mailto:uday@agdigitas.com?subject=AG%20Technologies%20-%20renewal%20and%20AMC%20follow-up">Email me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span class="footer-mark" data-media>
+            <img src="images/logo-dark.jpeg" width="2048" height="2048" alt="AG Technologies logo" onerror="this.closest('[data-media]').classList.add('is-missing')">
+          </span>
+          <span class="footer-name">AG Technologies</span>
+        </div>
+        <p style="margin-top:14px;max-width:38ch;">Renewal and AMC follow-up for small Mumbai offices of 20 to 200 computers.</p>
+      </div>
+      <div>
+        <p>3, Om Shree Sai Samarth CHSL, GogateWadi,<br>Goregaon (E), Mumbai 400063</p>
+        <p style="margin-top:10px;">GST 27AADPG1771F1Z0</p>
+      </div>
+      <div>
+        <nav class="footer-links" aria-label="Contact">
+          <a href="https://cal.com/udaygondkar/intromeeting">Book a 20 minute call</a>
+          <a href="https://wa.me/919820084070?text=Hi%20Uday%2C%20I%20saw%20the%20AG%20Technologies%20page%20and%20would%20like%20to%20talk%20about%20our%20AMC%20and%20renewal%20dates.">WhatsApp</a>
+          <a href="mailto:uday@agdigitas.com?subject=AG%20Technologies%20-%20renewal%20and%20AMC%20follow-up">uday@agdigitas.com</a>
+          <a href="https://www.agdigitas.com">agdigitas.com</a>
+        </nav>
+      </div>
+    </div>
+    <p class="footer-note">© 2026 AG Technologies</p>
+  </div>
+</footer>
+
+</body>
+</html>
